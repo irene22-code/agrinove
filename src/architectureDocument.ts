@@ -1,0 +1,139 @@
+export const architectureDocument = `
+# AgroMart Software Architecture Blueprint
+
+## 1. System Overview
+AgroMart is a robust, highly-available agricultural marketplace platform designed to bridge the gap between farmers, agricultural businesses, buyers, and administrators. The platform enables secure trading, inventory management, and direct communication through a responsive, modern web interface backed by a scalable Node.js/Express service and a Supabase (PostgreSQL) database.
+
+## 2. User Roles and Permissions
+
+| Role | Key Permissions |
+| --- | --- |
+| **Guest** | Browse products, view public seller profiles, register. |
+| **Buyer** | Purchase products, save favorites, send inquiries, review products, manage own profile. |
+| **Seller (Farmer/Business)** | All Buyer permissions + Create/manage products, manage inventory, view sales analytics, respond to inquiries, update seller profile. |
+| **Administrator** | Manage all users (verify, suspend), manage categories, oversee all products, view platform analytics, manage system settings. |
+
+## 3. Complete Application Architecture
+AgroMart employs a **Client-Server Architecture** utilizing a decoupled frontend and backend.
+* **Presentation Layer:** React.js Single Page Application (SPA) utilizing Vite, styled with Tailwind CSS.
+* **Application Layer:** Node.js + Express.js RESTful API handling business logic, validation, and integration.
+* **Data Access & Storage Layer:** Supabase providing Managed PostgreSQL, Auth, and Object Storage.
+* **Infrastructure Layer:** Frontend deployed on Vercel (CDN edge delivery); Backend deployed on Render (containerized application servers).
+
+## 4. Frontend Architecture (React.js)
+* **Framework:** React 19 + Vite (TypeScript enabled for type safety).
+* **State Management:** React Context API for global state (Auth, Cart, Theme), local state via \`useState\`/\`useReducer\`.
+* **Routing:** React Router v7 for client-side navigation.
+* **Styling:** Tailwind CSS for rapid, responsive UI development.
+* **API Communication:** Native \`fetch\` API with custom wrappers for interceptors (handling tokens).
+* **Component Pattern:** Atomic design principles (Atoms -> Molecules -> Organisms -> Templates -> Pages).
+
+## 5. Backend Architecture (Node.js/Express)
+* **Framework:** Express.js 5.x on Node.js.
+* **Design Pattern:** MVC (Model-View-Controller) adapted for APIs (Routes -> Controllers -> Services -> Data Access).
+* **Middleware Pipeline:**
+  * Security (Helmet, CORS).
+  * Parsing (JSON, URLEncoded, Multer for multipart).
+  * Authentication (Custom JWT validation or Supabase Auth middleware).
+  * Error Handling (Global centralized error handler).
+
+## 6. Database Architecture (Supabase PostgreSQL)
+Core relational tables:
+* **Users:** \`id\`, \`role\`, \`email\`, \`profile_data\`, \`created_at\`
+* **Sellers:** \`id\` (refs Users), \`business_name\`, \`verification_status\`, \`rating\`
+* **Products:** \`id\`, \`seller_id\`, \`category_id\`, \`title\`, \`description\`, \`price\`, \`stock_quantity\`, \`images\`
+* **Categories:** \`id\`, \`name\`, \`slug\`, \`parent_id\`
+* **Inquiries/Messages:** \`id\`, \`sender_id\`, \`receiver_id\`, \`product_id\`, \`content\`, \`status\`
+* **Reviews:** \`id\`, \`product_id\`, \`reviewer_id\`, \`rating\`, \`comment\`
+* **Favorites:** \`user_id\`, \`product_id\`
+
+## 7. API Architecture (RESTful)
+* **Versioning:** \`/api/v1/...\`
+* **Core Endpoints:**
+  * \`POST /api/auth/register\` (Handled partially via Supabase client, backend sync)
+  * \`GET /api/products\`, \`GET /api/products/:id\`
+  * \`POST /api/products\` (Protected: Seller/Admin)
+  * \`POST /api/inquiries\` (Protected: Authenticated)
+  * \`GET /api/admin/users\` (Protected: Admin)
+* **Response Format:** Standardized JSON (\`{ success: boolean, data: any, error?: string, meta?: any }\`)
+
+## 8. Security Architecture
+* **Data Transport:** Enforced TLS/SSL (HTTPS).
+* **API Security:** CORS restricted to frontend origins, rate limiting on sensitive endpoints (auth, inquiries).
+* **Input Validation:** Backend validation/sanitization to prevent SQL Injection and XSS.
+* **Database Security:** Supabase Row Level Security (RLS) policies enforcing that users only modify their own data.
+
+## 9. Authentication Flow
+1. Client requests login via Supabase Auth (Email/Password or OAuth).
+2. Supabase issues JWT Session token.
+3. Client stores token securely (HTTP-only cookies preferred, or in-memory + local storage fallback).
+4. Client attaches JWT as \`Bearer\` token in \`Authorization\` header to Backend API.
+5. Backend verifies JWT using Supabase JWT Secret.
+6. Backend extracts \`user_id\` and \`role\` to authorize the specific action.
+
+## 10. File Storage Strategy
+* **Provider:** Supabase Storage.
+* **Buckets:**
+  * \`avatars\` (Public read, authenticated write).
+  * \`product-images\` (Public read, seller-only write).
+  * \`verification-documents\` (Private, admin/owner only).
+* **Flow:** Client uploads via signed URLs generated by the backend, or directly via Supabase JS client utilizing RLS policies. Images are optimized before final display.
+
+## 11. Deployment Architecture
+* **Frontend:** Vercel (CI/CD connected to GitHub \`main\` branch, edge caching).
+* **Backend:** Render Web Service (Node.js runtime, auto-deploy on push to \`main\`).
+* **Database:** Supabase Managed Cloud (Automated backups, point-in-time recovery).
+* **Environment Configuration:** Managed securely via Vercel and Render dashboard secrets.
+
+## 12. Development Roadmap
+* **Phase 1 (Current):** Project Foundation & Architecture Blueprint.
+* **Phase 2:** Database Schema definition, RLS policies, and Auth setup.
+* **Phase 3:** Core Backend APIs (Users, Products).
+* **Phase 4:** Frontend Shell, Routing, and Authentication UI.
+* **Phase 5:** Seller Dashboard & Product Management.
+* **Phase 6:** Buyer Experience (Search, Filter, Product Details).
+* **Phase 7:** Messaging & Inquiry System.
+* **Phase 8:** Admin Panel & Verification flows.
+* **Phase 9:** Testing, QA, and Production Deployment.
+
+## 13. Recommended Folder Structures
+
+### Frontend (React/Vite)
+\`\`\`text
+src/
+├── assets/          # Static files (images, icons)
+├── components/      # Reusable UI components (buttons, inputs)
+├── context/         # React Context providers (AuthContext)
+├── hooks/           # Custom React hooks
+├── pages/           # Route components (Home, ProductDetail, Dashboard)
+├── services/        # API client fetch wrappers
+├── types/           # TypeScript interfaces/types
+├── utils/           # Helper functions
+├── App.tsx          # Main application router
+└── main.tsx         # Entry point
+\`\`\`
+
+### Backend (Express)
+\`\`\`text
+server/
+├── config/          # Environment & 3rd party configurations (Supabase config)
+├── controllers/     # Route request handlers
+├── middlewares/     # Auth, Validation, Error handlers
+├── models/          # Data access layer (Supabase queries)
+├── routes/          # Express route definitions
+├── utils/           # Helpers (jwt, standard responses)
+└── server.ts        # Express application entry
+\`\`\`
+
+## 14. Scalability Strategy
+* **Frontend:** Edge caching via Vercel. Code-splitting via Vite.
+* **Backend:** Stateless Express API allows horizontal scaling on Render. 
+* **Database:** Supabase (PostgreSQL) connection pooling (PgBouncer) handles high concurrency. Indexes on highly queried columns (product categories, search vectors).
+* **Media:** CDN delivery for all Supabase Storage assets.
+
+## 15. Future AI Integration Possibilities (Gemini API)
+* **Smart Search:** Semantic product search ("drought resistant seeds for sandy soil").
+* **Product Description Generator:** Auto-generating SEO-friendly product descriptions for farmers from simple bullet points.
+* **Chatbot Assistant:** Helping buyers find products or helping farmers with platform navigation.
+* **Price Insights:** Analyzing historical data to suggest optimal pricing to sellers.
+`;
