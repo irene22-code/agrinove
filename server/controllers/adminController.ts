@@ -138,7 +138,7 @@ export const getAdminProducts = async (req: Request, res: Response) => {
     const supabase = getAdminSupabaseClient();
     const { data, error } = await supabase
       .from('products')
-      .select('*, sellers(business_name, phone_number, whatsapp_number, address, location, users!inner(full_name, email)), categories(*), product_images(url, is_primary)').neq('status', 'archived')
+      .select('*, sellers(business_name, phone_number, whatsapp_number, address, location, users!inner(full_name, email)), categories(*), product_images(url, is_primary)').neq('status', 'archived').not('tags', 'cs', '{MARKET_PRICE}').not('tags', 'cs', '{MARKET_PRICE}')
       .neq('status', 'archived')
       .order('created_at', { ascending: false });
     if (error) throw error;
@@ -173,6 +173,7 @@ export const updateAdminProductStatus = async (req: Request, res: Response) => {
 };
 
 export const deleteAdminProduct = async (req: Request, res: Response) => {
+  console.log('DELETE CONTROLLER HIT - Product:', req.params.id);
   try {
     const admin_id = req.user.sub;
     const { id } = req.params;
@@ -264,6 +265,7 @@ export const updateCategory = async (req: Request, res: Response) => {
 };
 
 export const deleteCategory = async (req: Request, res: Response) => {
+  console.log('DELETE CONTROLLER HIT - Category:', req.params.id);
   try {
     const admin_id = req.user.sub;
     const { id } = req.params;
@@ -598,6 +600,7 @@ export const updateUserRole = async (req: Request, res: Response) => {
 };
 
 export const deleteUser = async (req: Request, res: Response) => {
+  console.log('DELETE CONTROLLER HIT - User:', req.params.id);
   console.log('Deleting user in controller, id:', req.params.id);
   try {
     const admin_id = req.user.sub;

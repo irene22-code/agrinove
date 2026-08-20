@@ -1,11 +1,7 @@
-import { getAdminSupabaseClient } from './server/config/supabase';
+import { getAdminSupabaseClient } from './server/config/supabase.js';
+const supabase = getAdminSupabaseClient();
 async function run() {
-  const supabase = getAdminSupabaseClient();
-  const { data, error } = await supabase.rpc('execute_sql', { sql: `
-    SELECT table_name 
-    FROM information_schema.tables 
-    WHERE table_schema = 'public';
-  `});
-  console.log("Tables:", data, error);
+  const { data, error } = await supabase.from('information_schema.tables').select('*');
+  console.log(error); // Supabase REST API doesn't expose information_schema
 }
 run();

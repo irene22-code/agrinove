@@ -45,7 +45,7 @@ export function SellerDashboard() {
         {cards.map((card) => (
           <Link key={card.name} to={card.href} className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
             <div className="flex items-center">
-              <div className="p-3 rounded-full bg-emerald-100 text-emerald-600">
+              <div className="p-3 rounded-full bg-green-100 text-green-600">
                 <card.icon className="h-6 w-6" />
               </div>
               <div className="ml-4">

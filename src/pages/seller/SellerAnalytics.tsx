@@ -47,7 +47,7 @@ export function SellerAnalytics() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-emerald-100 text-emerald-600">
+            <div className="p-3 rounded-full bg-green-100 text-green-600">
               <DollarSign className="h-6 w-6" />
             </div>
             <div className="ml-4">
@@ -119,7 +119,7 @@ export function SellerAnalytics() {
                 <span className="text-slate-500">{stats.inventory.activeProducts} / {stats.inventory.totalProducts}</span>
               </div>
               <div className="w-full bg-slate-200 rounded-full h-2">
-                <div className="bg-emerald-500 h-2 rounded-full" style={{ width: `${(stats.inventory.activeProducts / Math.max(stats.inventory.totalProducts, 1)) * 100}%` }}></div>
+                <div className="bg-green-500 h-2 rounded-full" style={{ width: `${(stats.inventory.activeProducts / Math.max(stats.inventory.totalProducts, 1)) * 100}%` }}></div>
               </div>
             </div>
             

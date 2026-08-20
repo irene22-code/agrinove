@@ -46,7 +46,9 @@ export function AdminProducts() {
 
 
   const deleteProduct = async (id: string) => {
-    if (deleteConfirmText !== 'DELETE') return;
+    console.log("DELETE BUTTON CLICKED", id);
+    console.log("CONFIRM DELETE", id);
+    if (deleteConfirmText.trim() !== 'DELETE') return;
     try {
       const res = await api.delete<{success: boolean}>(`/admin/products/${id}`);
       if (res.success) {
@@ -369,7 +371,7 @@ export function AdminProducts() {
               </button>
               <button 
                 onClick={() => deleteProduct(productToDelete)} 
-                disabled={deleteConfirmText !== 'DELETE'}
+                disabled={deleteConfirmText.trim() !== 'DELETE'}
                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50"
               >
                 Delete Product

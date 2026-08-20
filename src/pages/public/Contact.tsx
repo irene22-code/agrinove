@@ -50,7 +50,7 @@ export function Contact() {
       <div className="bg-white shadow-sm rounded-lg border border-slate-200 overflow-hidden">
         {isSubmitted ? (
           <div className="p-12 text-center">
-            <CheckCircle className="mx-auto h-16 w-16 text-emerald-500 mb-4" />
+            <CheckCircle className="mx-auto h-16 w-16 text-green-500 mb-4" />
             <h2 className="text-2xl font-bold text-slate-900 mb-2">
               Message Sent!
             </h2>
@@ -60,7 +60,7 @@ export function Contact() {
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700"
             >
               Send Another Message
             </button>
@@ -81,7 +81,7 @@ export function Contact() {
                   id="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm px-4 py-2 border"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm px-4 py-2 border"
                   placeholder="Your name"
                 />
               </div>
@@ -98,7 +98,7 @@ export function Contact() {
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm px-4 py-2 border"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm px-4 py-2 border"
                   placeholder="you@example.com"
                 />
               </div>
@@ -116,7 +116,7 @@ export function Contact() {
                 id="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm px-4 py-2 border"
+                className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm px-4 py-2 border"
                 placeholder="How can we help?"
               />
             </div>
@@ -133,7 +133,7 @@ export function Contact() {
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm px-4 py-2 border"
+                className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm px-4 py-2 border"
                 placeholder="Your message..."
               ></textarea>
             </div>
@@ -141,7 +141,7 @@ export function Contact() {
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors disabled:opacity-50"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>

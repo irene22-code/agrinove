@@ -115,7 +115,7 @@ export function Checkout() {
   if (isLoading) {
     return (
       <div className="max-w-3xl mx-auto p-6 flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-emerald-600"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-green-600"></div>
       </div>
     );
   }
@@ -125,7 +125,7 @@ export function Checkout() {
       <div className="max-w-3xl mx-auto p-6 text-center">
         <h2 className="text-2xl font-bold text-rose-600 mb-2">Error</h2>
         <p className="text-slate-600">{error || 'Product not found'}</p>
-        <button onClick={() => navigate('/products')} className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+        <button onClick={() => navigate('/products')} className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
           Back to Products
         </button>
       </div>
@@ -156,20 +156,20 @@ export function Checkout() {
             {/* Personal Information */}
             <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
               <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                <UserIcon className="h-5 w-5 mr-2 text-emerald-600" /> Personal Information
+                <UserIcon className="h-5 w-5 mr-2 text-green-600" /> Personal Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name</label>
-                  <input type="text" name="customer_name" required value={formData.customer_name} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="text" name="customer_name" required value={formData.customer_name} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
-                  <input type="tel" name="customer_phone" required value={formData.customer_phone} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="tel" name="customer_phone" required value={formData.customer_phone} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
-                  <input type="email" name="customer_email" required value={formData.customer_email} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="email" name="customer_email" required value={formData.customer_email} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
               </div>
             </section>
@@ -177,28 +177,28 @@ export function Checkout() {
             {/* Delivery Address */}
             <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
               <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                <MapPin className="h-5 w-5 mr-2 text-emerald-600" /> Delivery Address
+                <MapPin className="h-5 w-5 mr-2 text-green-600" /> Delivery Address
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Country</label>
-                  <input type="text" name="country" required value={formData.country} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="text" name="country" required value={formData.country} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">City/Province</label>
-                  <input type="text" name="city" required value={formData.city} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="text" name="city" required value={formData.city} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">District</label>
-                  <input type="text" name="district" required value={formData.district} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="text" name="district" required value={formData.district} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Sector</label>
-                  <input type="text" name="sector" required value={formData.sector} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="text" name="sector" required value={formData.sector} onChange={handleInputChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Street Address</label>
-                  <input type="text" name="street_address" required value={formData.street_address} onChange={handleInputChange} placeholder="E.g. KN 5 Rd, House 12" className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all" />
+                  <input type="text" name="street_address" required value={formData.street_address} onChange={handleInputChange} placeholder="E.g. KN 5 Rd, House 12" className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all" />
                 </div>
               </div>
             </section>
@@ -206,18 +206,18 @@ export function Checkout() {
             {/* Payment Options */}
             <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
               <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                <CreditCard className="h-5 w-5 mr-2 text-emerald-600" /> Payment Method
+                <CreditCard className="h-5 w-5 mr-2 text-green-600" /> Payment Method
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {['Cash on Delivery', 'Mobile Money', 'Bank Transfer'].map(method => (
-                  <label key={method} className={`relative flex cursor-pointer rounded-xl border p-4 shadow-sm transition-all ${formData.payment_method === method ? 'border-emerald-600 bg-emerald-50' : 'border-slate-300 hover:border-emerald-300'}`}>
+                  <label key={method} className={`relative flex cursor-pointer rounded-xl border p-4 shadow-sm transition-all ${formData.payment_method === method ? 'border-green-600 bg-green-50' : 'border-slate-300 hover:border-green-300'}`}>
                     <input type="radio" name="payment_method" value={method} checked={formData.payment_method === method} onChange={handleInputChange} className="sr-only" />
                     <span className="flex flex-1">
                       <span className="flex flex-col">
-                        <span className={`block text-sm font-bold ${formData.payment_method === method ? 'text-emerald-900' : 'text-slate-900'}`}>{method}</span>
+                        <span className={`block text-sm font-bold ${formData.payment_method === method ? 'text-green-900' : 'text-slate-900'}`}>{method}</span>
                       </span>
                     </span>
-                    <span className={`h-5 w-5 rounded-full border flex items-center justify-center ${formData.payment_method === method ? 'border-emerald-600 bg-emerald-600' : 'border-slate-300'}`}>
+                    <span className={`h-5 w-5 rounded-full border flex items-center justify-center ${formData.payment_method === method ? 'border-green-600 bg-green-600' : 'border-slate-300'}`}>
                       {formData.payment_method === method && <span className="h-2.5 w-2.5 rounded-full bg-white"></span>}
                     </span>
                   </label>
@@ -228,15 +228,15 @@ export function Checkout() {
             {/* Order Notes */}
             <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
               <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                <ShoppingBag className="h-5 w-5 mr-2 text-emerald-600" /> Order Information
+                <ShoppingBag className="h-5 w-5 mr-2 text-green-600" /> Order Information
               </h2>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Order Notes (Optional)</label>
-                <textarea name="order_notes" rows={3} value={formData.order_notes} onChange={handleInputChange} placeholder="Special instructions for delivery..." className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all resize-none"></textarea>
+                <textarea name="order_notes" rows={3} value={formData.order_notes} onChange={handleInputChange} placeholder="Special instructions for delivery..." className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all resize-none"></textarea>
               </div>
             </section>
 
-            <button type="submit" disabled={isSubmitting} className="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-md text-lg font-bold text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+            <button type="submit" disabled={isSubmitting} className="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-md text-lg font-bold text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
               {isSubmitting ? 'Processing...' : 'Place Order'}
             </button>
           </form>
@@ -260,7 +260,7 @@ export function Checkout() {
                 <div>
                   <h3 className="text-sm font-bold text-slate-900 line-clamp-2">{product.title}</h3>
                   <p className="text-xs text-slate-500 mt-1">Qty: 1</p>
-                  <p className="text-sm font-bold text-emerald-700 mt-1">${currentPrice.toFixed(2)}</p>
+                  <p className="text-sm font-bold text-green-700 mt-1">${currentPrice.toFixed(2)}</p>
                 </div>
               </div>
 
@@ -271,7 +271,7 @@ export function Checkout() {
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Shipping</span>
-                  <span className="font-medium text-emerald-600">Free</span>
+                  <span className="font-medium text-green-600">Free</span>
                 </div>
                 <div className="pt-4 border-t border-slate-200 flex justify-between">
                   <span className="text-lg font-bold text-slate-900">Total</span>

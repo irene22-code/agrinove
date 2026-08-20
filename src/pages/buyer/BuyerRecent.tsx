@@ -44,7 +44,7 @@ export function BuyerRecent() {
           <h3 className="text-lg font-medium text-slate-900">No recently viewed items</h3>
           <p className="mt-1 text-sm text-slate-500">Products you view will appear here.</p>
           <div className="mt-6">
-            <Link to="/products" className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-emerald-600 hover:bg-emerald-700 transition-colors">
+            <Link to="/products" className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 transition-colors">
               Start Browsing
             </Link>
           </div>
@@ -60,7 +60,7 @@ export function BuyerRecent() {
                   <img src={primaryImage} alt={product.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <p className="text-xs text-emerald-600 font-bold uppercase tracking-wider mb-2">{product.categories?.name || 'Category'}</p>
+                  <p className="text-xs text-green-600 font-bold uppercase tracking-wider mb-2">{product.categories?.name || 'Category'}</p>
                   <h3 className="text-lg font-bold text-slate-900 mb-1 line-clamp-2">{product.title}</h3>
                   <div className="mt-auto pt-4 flex items-center justify-between">
                     <p className="text-lg font-extrabold text-slate-900">${product.price} <span className="text-sm font-normal text-slate-500">/ {product.unit}</span></p>

@@ -48,7 +48,7 @@ export function SellerProducts() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-slate-900">My Products</h1>
-        <Link to="/seller/products/new" className="px-4 py-2 bg-emerald-600 text-white rounded-md text-sm font-medium hover:bg-emerald-700">
+        <Link to="/seller/products/new" className="px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700">
           Add Product
         </Link>
       </div>
@@ -97,7 +97,7 @@ export function SellerProducts() {
                     <select 
                       value={product.status} 
                       onChange={(e) => handleStatusChange(product.id, e.target.value)}
-                      className={`text-xs font-semibold rounded-full px-2 py-1 border-0 focus:ring-2 focus:ring-emerald-500 cursor-pointer ${product.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-slate-100 text-slate-800'}`}
+                      className={`text-xs font-semibold rounded-full px-2 py-1 border-0 focus:ring-2 focus:ring-green-500 cursor-pointer ${product.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-slate-100 text-slate-800'}`}
                     >
                       <option value="active">Active</option>
                       <option value="draft">Draft</option>
@@ -105,10 +105,10 @@ export function SellerProducts() {
                     </select>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <Link to={`/products/${product.id}`} className="text-slate-400 hover:text-emerald-600 mr-3" title="View Public Page">
+                    <Link to={`/products/${product.id}`} className="text-slate-400 hover:text-green-600 mr-3" title="View Public Page">
                       <ExternalLink className="h-4 w-4 inline" />
                     </Link>
-                    <Link to={`/seller/products/${product.id}/edit`} className="text-slate-400 hover:text-emerald-600" title="Edit Product">
+                    <Link to={`/seller/products/${product.id}/edit`} className="text-slate-400 hover:text-green-600" title="Edit Product">
                       <Edit2 className="h-4 w-4 inline" />
                     </Link>
                   </td>

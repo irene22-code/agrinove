@@ -1,0 +1,21 @@
+1. START FROM THE FRONTEND CLICK
+- The `onClick` handler `(e) => handleDeleteConversation(conv.id, e)` is correctly attached to the Trash2 button.
+- The `id` passed is `conv.id`, which perfectly matches `ai_conversations.id`.
+- The button is NOT blocked by CSS (`pointer-events` or `z-index`).
+- `confirm` dialog is present and works (as proven by Delete All History working).
+
+2. TRACE THE FRONTEND STATE & NETWORK REQUEST
+- `handleDeleteConversation(id, e)` correctly calls `e.stopPropagation()` and triggers `setDeletingId(id)`.
+- It executes `fetch` to `DELETE /api/ai/conversations/${id}` with the Bearer token.
+- I injected `console.log("[AI DELETE] clicked", id)` and `console.log("[AI DELETE] sending request", id)` to verify this at runtime.
+
+3. TRACE THE BACKEND CONTROLLER & DATABASE
+- The route `router.delete('/conversations/:id', deleteConversation)` correctly maps to the controller.
+- The controller uses `getAdminSupabaseClient()` (service role, bypassing RLS).
+- THE BUG: In the previous implementation, if `supabase.storage.from(...).remove()` threw an error (e.g., file already deleted, bucket misconfigured), it aborted the entire function. It jumped to the `catch` block, returning a 500 error, and the database `delete()` was NEVER executed.
+- I wrapped the storage `remove` commands in a `try...catch` block to safely ignore storage errors and guarantee the `ai_conversations` row is deleted.
+- I injected `console.log("[AI DELETE] backend route reached", id)` and `console.log("[AI DELETE] Successfully deleted from db:", id)` to verify execution.
+
+4. TRACE THE UI UPDATE
+- Upon receiving `response.ok`, `setConversations(prev => prev.filter(c => c.id !== id))` is executed.
+- This correctly removes the item from the state array and forces an immediate React re-render.

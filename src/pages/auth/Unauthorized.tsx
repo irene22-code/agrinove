@@ -10,7 +10,7 @@ export function Unauthorized() {
         <p className="text-slate-600">
           You do not have permission to view this page.
         </p>
-        <Link to="/" className="text-emerald-600 hover:text-emerald-700 font-medium">
+        <Link to="/" className="text-green-600 hover:text-green-700 font-medium">
           Return to Home
         </Link>
       </div>

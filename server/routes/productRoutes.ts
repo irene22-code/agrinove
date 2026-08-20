@@ -1,3 +1,4 @@
+import { getPublicMarketPrices } from '../controllers/marketPricesController';
 import { Router } from 'express';
 import multer from 'multer';
 import { 
@@ -23,6 +24,7 @@ const upload = multer({
 // ==========================================
 // Public Endpoints
 // ==========================================
+router.get('/market-prices', getPublicMarketPrices);
 router.get('/', getProducts);
 router.get('/:id', getProductById);
 

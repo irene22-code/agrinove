@@ -98,7 +98,7 @@ export function BuyerSettings() {
         {!isEditing && (
           <button 
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium shadow-sm"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium shadow-sm"
           >
             Edit Profile
           </button>
@@ -119,7 +119,7 @@ export function BuyerSettings() {
                   )}
                 </div>
                 {isEditing && (
-                  <button type="button" className="absolute bottom-0 right-0 p-1.5 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-emerald-600 shadow-sm group-hover:scale-105 transition-transform">
+                  <button type="button" className="absolute bottom-0 right-0 p-1.5 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-green-600 shadow-sm group-hover:scale-105 transition-transform">
                     <Camera className="h-4 w-4" />
                   </button>
                 )}
@@ -127,7 +127,7 @@ export function BuyerSettings() {
               <div className="text-center sm:text-left">
                 <h2 className="text-xl font-bold text-slate-900">{profile?.full_name || user?.full_name || 'Guest User'}</h2>
                 <p className="text-slate-500">{user?.email}</p>
-                <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                   Member since {joinedDate}
                 </div>
               </div>
@@ -143,7 +143,7 @@ export function BuyerSettings() {
                     value={formData.avatar_url}
                     onChange={(e) => setFormData({...formData, avatar_url: e.target.value})}
                     placeholder="https://example.com/avatar.jpg"
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500"
                   />
                 </div>
               )}
@@ -155,7 +155,7 @@ export function BuyerSettings() {
                   value={formData.full_name}
                   onChange={(e) => setFormData({...formData, full_name: e.target.value})}
                   disabled={!isEditing}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
               
@@ -178,7 +178,7 @@ export function BuyerSettings() {
                   onChange={(e) => setFormData({...formData, phone_number: e.target.value})}
                   disabled={!isEditing}
                   placeholder="+1 (555) 000-0000"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
               
@@ -190,7 +190,7 @@ export function BuyerSettings() {
                   disabled={!isEditing}
                   rows={3}
                   placeholder="Street, City, State, ZIP"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
             </div>
@@ -207,7 +207,7 @@ export function BuyerSettings() {
                 <button 
                   type="submit"
                   disabled={isLoading}
-                  className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium flex items-center shadow-sm"
+                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center shadow-sm"
                 >
                   {isLoading ? 'Saving...' : 'Save Changes'}
                 </button>
@@ -222,7 +222,7 @@ export function BuyerSettings() {
           <h2 className="text-xl font-bold text-slate-900 mb-4">Security</h2>
           <form onSubmit={handlePasswordSubmit} className="space-y-6 max-w-md">
             {passwordError && <div className="text-rose-600 text-sm p-3 bg-rose-50 rounded-lg">{passwordError}</div>}
-            {passwordSuccess && <div className="text-emerald-600 text-sm p-3 bg-emerald-50 rounded-lg">{passwordSuccess}</div>}
+            {passwordSuccess && <div className="text-green-600 text-sm p-3 bg-green-50 rounded-lg">{passwordSuccess}</div>}
             
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">Current Password</label>
@@ -231,7 +231,7 @@ export function BuyerSettings() {
                 value={passwordData.currentPassword}
                 onChange={(e) => setPasswordData({...passwordData, currentPassword: e.target.value})}
                 required
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500"
               />
             </div>
             <div>
@@ -241,7 +241,7 @@ export function BuyerSettings() {
                 value={passwordData.newPassword}
                 onChange={(e) => setPasswordData({...passwordData, newPassword: e.target.value})}
                 required
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500"
               />
             </div>
             <div>
@@ -251,7 +251,7 @@ export function BuyerSettings() {
                 value={passwordData.confirmPassword}
                 onChange={(e) => setPasswordData({...passwordData, confirmPassword: e.target.value})}
                 required
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500"
               />
             </div>
             <button 

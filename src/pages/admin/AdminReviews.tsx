@@ -9,7 +9,7 @@ export function AdminReviews() {
   const [deleteConfirmText, setDeleteConfirmText] = useState('');
 
   const handleDelete = async (id: string) => {
-    if (deleteConfirmText !== 'DELETE') return;
+    if (deleteConfirmText.trim() !== 'DELETE') return;
     try {
       const res = await api.delete<{success: boolean}>(`/admin/reviews/${id}`);
       if (res.success) {
@@ -99,7 +99,7 @@ export function AdminReviews() {
               </button>
               <button 
                 onClick={() => handleDelete(reviewToDelete)} 
-                disabled={deleteConfirmText !== 'DELETE'}
+                disabled={deleteConfirmText.trim() !== 'DELETE'}
                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50"
               >
                 Delete Review

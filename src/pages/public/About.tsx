@@ -1,10 +1,10 @@
 export function About() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-extrabold text-slate-900 mb-8">About AgroMart</h1>
+      <h1 className="text-4xl font-extrabold text-slate-900 mb-8">About AgroNavo</h1>
       <div className="prose prose-emerald prose-lg max-w-none text-slate-600">
         <p className="lead text-xl">
-          AgroMart was founded with a simple yet powerful mission: to bridge the gap between hard-working farmers and conscious consumers.
+          AgroNavo was founded with a simple yet powerful mission: to bridge the gap between hard-working farmers and conscious consumers.
         </p>
         <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">Our Vision</h2>
         <p>

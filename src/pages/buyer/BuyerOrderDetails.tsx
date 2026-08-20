@@ -54,7 +54,7 @@ export function BuyerOrderDetails() {
       <div className="text-center py-12">
         <h3 className="text-lg font-medium text-rose-600 mb-2">Error</h3>
         <p className="text-slate-500">{error || 'Order not found'}</p>
-        <Link to="/buyer/orders" className="mt-4 inline-flex items-center text-emerald-600 hover:text-emerald-700">
+        <Link to="/buyer/orders" className="mt-4 inline-flex items-center text-green-600 hover:text-green-700">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Orders
         </Link>
       </div>
@@ -65,7 +65,7 @@ export function BuyerOrderDetails() {
     <div className="space-y-6 max-w-4xl">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link to="/buyer/orders" className="text-slate-500 hover:text-emerald-600">
+          <Link to="/buyer/orders" className="text-slate-500 hover:text-green-600">
             <ArrowLeft className="h-5 w-5" />
           </Link>
           <h1 className="text-2xl font-bold text-slate-900">Order Details</h1>
@@ -104,7 +104,7 @@ export function BuyerOrderDetails() {
                 ${order.order_status === 'pending' ? 'bg-amber-100 text-amber-800' : 
                   order.order_status === 'processing' ? 'bg-blue-100 text-blue-800' :
                   order.order_status === 'shipped' ? 'bg-purple-100 text-purple-800' :
-                  order.order_status === 'delivered' ? 'bg-emerald-100 text-emerald-800' :
+                  order.order_status === 'delivered' ? 'bg-green-100 text-green-800' :
                   'bg-rose-100 text-rose-800'
                 }`}>
                 {order.order_status}
@@ -121,7 +121,7 @@ export function BuyerOrderDetails() {
              <div className="relative z-10 flex flex-col sm:flex-row justify-between gap-6 sm:gap-0">
                
                <div className="flex sm:flex-col items-center gap-3 sm:gap-2">
-                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${order.order_status !== 'cancelled' ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
+                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${order.order_status !== 'cancelled' ? 'bg-green-500 border-green-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
                    <Package className="h-4 w-4" />
                  </div>
                  <div className="sm:text-center">
@@ -130,7 +130,7 @@ export function BuyerOrderDetails() {
                </div>
 
                <div className="flex sm:flex-col items-center gap-3 sm:gap-2">
-                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${['processing', 'shipped', 'delivered'].includes(order.order_status) ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
+                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${['processing', 'shipped', 'delivered'].includes(order.order_status) ? 'bg-green-500 border-green-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
                    <Clock className="h-4 w-4" />
                  </div>
                  <div className="sm:text-center">
@@ -139,7 +139,7 @@ export function BuyerOrderDetails() {
                </div>
 
                <div className="flex sm:flex-col items-center gap-3 sm:gap-2">
-                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${['shipped', 'delivered'].includes(order.order_status) ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
+                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${['shipped', 'delivered'].includes(order.order_status) ? 'bg-green-500 border-green-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
                    <Truck className="h-4 w-4" />
                  </div>
                  <div className="sm:text-center">
@@ -148,7 +148,7 @@ export function BuyerOrderDetails() {
                </div>
 
                <div className="flex sm:flex-col items-center gap-3 sm:gap-2">
-                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${order.order_status === 'delivered' ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
+                 <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 ${order.order_status === 'delivered' ? 'bg-green-500 border-green-500 text-white' : 'bg-slate-100 border-slate-300 text-slate-400'}`}>
                    <CheckCircle className="h-4 w-4" />
                  </div>
                  <div className="sm:text-center">
@@ -173,7 +173,7 @@ export function BuyerOrderDetails() {
                        <img src={primaryImage} alt={item.products?.title} className="h-full w-full object-cover" />
                      </div>
                      <div>
-                       <Link to={`/products/${item.product_id}`} className="font-bold text-slate-900 hover:text-emerald-600 line-clamp-1 text-lg">
+                       <Link to={`/products/${item.product_id}`} className="font-bold text-slate-900 hover:text-green-600 line-clamp-1 text-lg">
                          {item.products?.title}
                        </Link>
                        <p className="text-sm text-slate-600 line-clamp-2 mt-1">{item.products?.description}</p>
@@ -184,7 +184,7 @@ export function BuyerOrderDetails() {
                        </div>
                        {item.products?.sellers && (
                           <div className="mt-1 text-xs text-slate-500">
-                            Seller: <span className="font-medium text-emerald-700">{item.products.sellers.business_name}</span>
+                            Seller: <span className="font-medium text-green-700">{item.products.sellers.business_name}</span>
                           </div>
                        )}
                      </div>

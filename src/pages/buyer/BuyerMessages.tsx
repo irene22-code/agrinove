@@ -55,7 +55,7 @@ export function BuyerMessages() {
                   <Link to={`/buyer/inquiries/${inquiry.id}`} className="p-5 flex items-start justify-between group">
                     <div className="flex items-start gap-4">
                       <div className="mt-1 relative">
-                        <div className="h-10 w-10 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+                        <div className="h-10 w-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                           <MessageSquare className="h-5 w-5" />
                         </div>
                         {unreadCount > 0 && (
@@ -71,7 +71,7 @@ export function BuyerMessages() {
                           </p>
                           <span className={`px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full ${
                             inquiry.status === 'open' ? 'bg-amber-100 text-amber-800' :
-                            inquiry.status === 'resolved' ? 'bg-emerald-100 text-emerald-800' :
+                            inquiry.status === 'resolved' ? 'bg-green-100 text-green-800' :
                             'bg-slate-100 text-slate-800'
                           }`}>
                             {inquiry.status}
@@ -82,7 +82,7 @@ export function BuyerMessages() {
                     </div>
                     
                     <div className="flex flex-col items-end justify-center h-full pt-1">
-                      <span className="text-emerald-600 group-hover:text-emerald-700 p-2 inline-flex items-center text-sm font-medium">
+                      <span className="text-green-600 group-hover:text-green-700 p-2 inline-flex items-center text-sm font-medium">
                         View <ExternalLink className="ml-1 h-4 w-4" />
                       </span>
                     </div>

@@ -8,8 +8,10 @@ export function AdminBuyers() {
   const [buyerToDelete, setBuyerToDelete] = useState<string | null>(null);
   const [deleteConfirmText, setDeleteConfirmText] = useState('');
 
-  const handleDelete = async (id: string) => { console.log("Delete clicked in AdminBuyers"); console.log("Buyer id:", id);
-    if (deleteConfirmText !== 'DELETE') return;
+  const handleDelete = async (id: string) => {
+    console.log("DELETE BUTTON CLICKED", id);
+    console.log("CONFIRM DELETE", id); console.log("Delete clicked in AdminBuyers"); console.log("Buyer id:", id);
+    if (deleteConfirmText.trim() !== 'DELETE') return;
     try {
       console.log("Sending delete request to API for buyer", id); const res = await api.delete<{success: boolean, error?: string}>(`/admin/users/${id}`);
       if (res.success) {
@@ -143,7 +145,7 @@ export function AdminBuyers() {
               </button>
               <button 
                 onClick={() => handleDelete(buyerToDelete)} 
-                disabled={deleteConfirmText !== 'DELETE'}
+                disabled={deleteConfirmText.trim() !== 'DELETE'}
                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50"
               >
                 Delete Buyer

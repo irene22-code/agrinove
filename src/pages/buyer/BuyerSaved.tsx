@@ -66,7 +66,7 @@ export function BuyerSaved() {
           <h3 className="text-lg font-medium text-slate-900">No saved items</h3>
           <p className="mt-1 text-sm text-slate-500">Products you save for later will appear here.</p>
           <div className="mt-6">
-            <Link to="/products" className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-emerald-600 hover:bg-emerald-700">
+            <Link to="/products" className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700">
               Browse Products
             </Link>
           </div>
@@ -91,7 +91,7 @@ export function BuyerSaved() {
                     </button>
                     <Link 
                       to={`/products/${product.id}`} 
-                      className="p-2 bg-white rounded-full text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 shadow-sm transition-colors" 
+                      className="p-2 bg-white rounded-full text-slate-400 hover:text-green-600 hover:bg-green-50 shadow-sm transition-colors" 
                       title="Open Product Details"
                     >
                       <ExternalLink className="h-4 w-4" />
@@ -99,7 +99,7 @@ export function BuyerSaved() {
                   </div>
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <Link to={`/products/${product.id}`} className="hover:text-emerald-600 transition-colors">
+                  <Link to={`/products/${product.id}`} className="hover:text-green-600 transition-colors">
                     <h3 className="text-lg font-bold text-slate-900 mb-1 line-clamp-1">{product.title}</h3>
                   </Link>
                   <p className="text-sm text-slate-500 line-clamp-2 mb-4">{product.description || 'No description available.'}</p>
@@ -108,7 +108,7 @@ export function BuyerSaved() {
                     <p className="text-lg font-extrabold text-slate-900">${product.price} <span className="text-sm font-normal text-slate-500">/ {product.unit}</span></p>
                     <button 
                       onClick={() => handleMoveToCart(item)}
-                      className="inline-flex items-center justify-center p-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 rounded-lg transition-colors font-medium text-sm"
+                      className="inline-flex items-center justify-center p-2 bg-green-100 text-green-700 hover:bg-green-200 rounded-lg transition-colors font-medium text-sm"
                       title="Move to Cart"
                     >
                       <ShoppingCart className="h-5 w-5" />

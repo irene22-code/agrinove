@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/routes/ProtectedRoute';
 
@@ -9,6 +10,13 @@ import { About } from './pages/public/About';
 import { Contact } from './pages/public/Contact';
 import { ProductListing } from './pages/public/ProductListing';
 import { ProductDetails } from './pages/public/ProductDetails';
+import { MarketPrices } from './pages/public/MarketPrices';
+import { CropCalendar } from './pages/public/CropCalendar';
+import { Weather } from './pages/public/Weather';
+
+import PlantHealthGuide from './pages/public/PlantHealthGuide';
+import PlantHealthDetails from './pages/public/PlantHealthDetails';
+
 
 // Auth Pages
 import { Login } from './pages/auth/Login';
@@ -59,6 +67,13 @@ import { AdminLogs } from './pages/admin/AdminLogs';
 import { AdminBuyers } from './pages/admin/AdminBuyers';
 import { AdminReviews } from './pages/admin/AdminReviews';
 import { AdminNotifications } from './pages/admin/AdminNotifications';
+import AdminMarketPrices from './pages/admin/AdminMarketPrices';
+
+import AdminPlantHealth from './pages/admin/AdminPlantHealth';
+import AddEditPlantHealth from './pages/admin/AddEditPlantHealth';
+import AdminPlantHealthSettings from './pages/admin/AdminPlantHealthSettings';
+import AdminCropCalendar from './pages/admin/AdminCropCalendar';
+
 
 import { AdminLogin } from './pages/admin/AdminLogin';
 
@@ -81,6 +96,14 @@ function AppRoutes() {
           <Route path="/admin/notifications" element={<AdminNotifications />} />
 
           <Route path="/admin/products" element={<AdminProducts />} />
+          <Route path="/admin/market-prices" element={<AdminMarketPrices />} />
+
+          <Route path="/admin/plant-health" element={<AdminPlantHealth />} />
+          <Route path="/admin/plant-health/settings" element={<AdminPlantHealthSettings />} />
+          <Route path="/admin/crop-calendar" element={<AdminCropCalendar />} />
+          <Route path="/admin/plant-health/new" element={<AddEditPlantHealth />} />
+          <Route path="/admin/plant-health/:id/edit" element={<AddEditPlantHealth />} />
+
           <Route path="/admin/categories" element={<AdminCategories />} />
           <Route path="/admin/orders" element={<AdminOrders />} />
           <Route path="/admin/messages" element={<AdminMessages />} />
@@ -97,7 +120,17 @@ function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ProductListing />} />
+        <Route path="/marketplace" element={<ProductListing />} />
+        <Route path="/categories" element={<ProductListing />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/marketplace/:id" element={<ProductDetails />} />
+        <Route path="/market-prices" element={<MarketPrices />} />
+        <Route path="/crop-calendar" element={<CropCalendar />} />
+        <Route path="/plant-health" element={<PlantHealthGuide />} />
+        <Route path="/plant-health-guide" element={<PlantHealthGuide />} />
+        <Route path="/plant-health/:slug" element={<PlantHealthDetails />} />
+        <Route path="/weather" element={<Weather />} />
+
         
         {/* Auth Routes */}
         <Route path="/buyer/login" element={user ? <Navigate to="/" replace /> : <Login />} />
@@ -148,10 +181,12 @@ function AppRoutes() {
 
 export default function App() {
   return (
+    <LanguageProvider>
     <AuthProvider>
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
     </AuthProvider>
+    </LanguageProvider>
   );
 }

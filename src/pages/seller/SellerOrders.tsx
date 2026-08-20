@@ -54,7 +54,7 @@ export function SellerOrders() {
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                         order.order_status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
                         order.order_status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                        order.order_status === 'delivered' ? 'bg-emerald-100 text-emerald-800' :
+                        order.order_status === 'delivered' ? 'bg-green-100 text-green-800' :
                         order.order_status === 'cancelled' ? 'bg-red-100 text-red-800' :
                         'bg-slate-100 text-slate-800'
                       }`}>
@@ -64,7 +64,7 @@ export function SellerOrders() {
                     </div>
                   </div>
                   <div>
-                    <Link to={`/seller/orders/${order.id}`} className="text-emerald-600 hover:text-emerald-700 p-2 inline-flex items-center text-sm font-medium">
+                    <Link to={`/seller/orders/${order.id}`} className="text-green-600 hover:text-green-700 p-2 inline-flex items-center text-sm font-medium">
                       Manage Order
                       <ExternalLink className="ml-1 h-4 w-4" />
                     </Link>

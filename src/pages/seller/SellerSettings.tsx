@@ -59,7 +59,7 @@ export function SellerSettings() {
         {!isEditing && (
           <button 
             onClick={() => setIsEditing(true)}
-            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
           >
             Edit Store Profile
           </button>
@@ -78,7 +78,7 @@ export function SellerSettings() {
                   onChange={(e) => setFormData({...formData, business_name: e.target.value})}
                   disabled={!isEditing}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
 
@@ -90,7 +90,7 @@ export function SellerSettings() {
                   onChange={(e) => setFormData({...formData, full_name: e.target.value})}
                   disabled={!isEditing}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
               
@@ -113,7 +113,7 @@ export function SellerSettings() {
                   onChange={(e) => setFormData({...formData, phone_number: e.target.value})}
                   disabled={!isEditing}
                   placeholder="+1 (555) 000-0000"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
               
@@ -124,7 +124,7 @@ export function SellerSettings() {
                   value={formData.address}
                   onChange={(e) => setFormData({...formData, address: e.target.value})}
                   disabled={!isEditing}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
               
@@ -136,7 +136,7 @@ export function SellerSettings() {
                   disabled={!isEditing}
                   rows={4}
                   placeholder="Tell buyers about your farm and practices..."
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-green-500 focus:border-green-500 disabled:bg-slate-50 disabled:text-slate-500"
                 />
               </div>
             </div>
@@ -153,7 +153,7 @@ export function SellerSettings() {
                 <button 
                   type="submit"
                   disabled={isLoading}
-                  className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium flex items-center"
+                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center"
                 >
                   {isLoading ? 'Saving...' : 'Save Changes'}
                 </button>

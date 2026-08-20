@@ -11,7 +11,7 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(cors());
-  app.use(express.json());
+  app.use(express.json({ limit: "50mb" }));
 
   // API routes
   app.get("/api/health", (req, res) => {
@@ -27,8 +27,13 @@ async function startServer() {
   app.use("/api/inquiries", (await import("./server/routes/inquiryRoutes")).default);
   app.use("/api/messages", (await import("./server/routes/messageRoutes")).default);
   app.use("/api/categories", (await import("./server/routes/categoryRoutes")).default);
+  app.use("/api/admin/plant-health", (await import("./server/routes/adminPlantHealthRoutes")).default);
   app.use("/api/admin", (await import("./server/routes/adminRoutes")).default);
+  app.use("/api/admin/crop-calendar", (await import("./server/routes/adminCropCalendarRoutes")).default);
+  app.use("/api/plant-health", (await import("./server/routes/plantHealthRoutes")).default);
   app.use("/api/contact", (await import("./server/routes/contactRoutes")).default);
+  app.use("/api/ai", (await import("./server/routes/agromartAIRoutes")).default);
+  app.use("/api/crop-calendar", (await import("./server/routes/cropCalendarRoutes")).default);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {

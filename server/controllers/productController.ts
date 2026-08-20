@@ -21,11 +21,18 @@ export const getProducts = async (req: Request, res: Response) => {
     if (max_price) query = query.lte('price', max_price);
     if (brand) query = query.ilike('brand', `%${brand}%`);
     
-    // Default to active if status is not provided and not searching by a specific seller
+    // Default to active if status is not provided
     if (status) {
         query = query.eq('status', status);
-    } else if (!seller_id) {
+    } else {
         query = query.eq('status', 'active'); 
+    }
+    // Never show archived products in public listings
+    // Hide Market Prices from regular shop
+    query = query.not('tags', 'cs', '{MARKET_PRICE}');
+    
+    if (status !== 'archived') {
+        query = query.neq('status', 'archived');
     }
     
     if (seller_id) query = query.eq('seller_id', seller_id);

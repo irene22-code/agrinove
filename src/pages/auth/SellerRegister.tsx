@@ -81,7 +81,7 @@ export function SellerRegister() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl w-full space-y-8 bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <div className="flex flex-col items-center">
-          <Leaf className="h-12 w-12 text-emerald-600 mb-2" />
+          <Leaf className="h-12 w-12 text-green-600 mb-2" />
           <h2 className="text-center text-3xl font-extrabold text-slate-900">
             Seller Registration
           </h2>
@@ -100,13 +100,13 @@ export function SellerRegister() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="md:col-span-2 flex flex-col items-center justify-center">
                 <div 
-                    className="h-24 w-24 rounded-full bg-slate-100 flex items-center justify-center border-2 border-dashed border-emerald-300 overflow-hidden cursor-pointer hover:bg-slate-50"
+                    className="h-24 w-24 rounded-full bg-slate-100 flex items-center justify-center border-2 border-dashed border-green-300 overflow-hidden cursor-pointer hover:bg-slate-50"
                     onClick={() => fileInputRef.current?.click()}
                 >
                     {profilePicture ? (
                         <img src={URL.createObjectURL(profilePicture)} alt="Profile Preview" className="h-full w-full object-cover" />
                     ) : (
-                        <div className="text-center flex flex-col items-center text-emerald-600">
+                        <div className="text-center flex flex-col items-center text-green-600">
                             <Upload className="h-6 w-6" />
                             <span className="text-xs mt-1 font-medium">Upload</span>
                         </div>
@@ -130,7 +130,7 @@ export function SellerRegister() {
                 required 
                 value={formData.full_name}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
             
@@ -142,7 +142,7 @@ export function SellerRegister() {
                 required 
                 value={formData.business_name}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -154,7 +154,7 @@ export function SellerRegister() {
                 required 
                 value={formData.phone_number}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -165,7 +165,7 @@ export function SellerRegister() {
                 type="tel" 
                 value={formData.whatsapp_number}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -177,7 +177,7 @@ export function SellerRegister() {
                 required 
                 value={formData.address}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -189,7 +189,7 @@ export function SellerRegister() {
                 required 
                 value={formData.location}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -201,7 +201,7 @@ export function SellerRegister() {
                 required 
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -213,7 +213,7 @@ export function SellerRegister() {
                 required 
                 value={formData.password}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
               />
             </div>
 
@@ -224,7 +224,7 @@ export function SellerRegister() {
                 rows={3}
                 value={formData.about}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm" 
+                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm" 
                 placeholder="Tell buyers about yourself and your farming practices..."
               />
             </div>
@@ -234,13 +234,13 @@ export function SellerRegister() {
             <button 
               type="submit" 
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 disabled:opacity-50 transition-colors"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 transition-colors"
             >
               {isLoading ? 'Creating account...' : 'Create Seller Account'}
             </button>
           </div>
           <div className="text-sm text-center mt-4 flex flex-col space-y-2">
-            <Link to="/seller/login" className="font-medium text-emerald-600 hover:text-emerald-500">
+            <Link to="/seller/login" className="font-medium text-green-600 hover:text-green-500">
               Already have a seller account? Log in
             </Link>
             <Link to="/buyer/register" className="font-medium text-slate-500 hover:text-slate-700">

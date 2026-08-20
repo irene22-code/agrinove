@@ -111,7 +111,7 @@ export function EditProduct() {
             onChange={(e) =>
               setFormData({ ...formData, title: e.target.value })
             }
-            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm"
           />
         </div>
         <div>
@@ -125,7 +125,7 @@ export function EditProduct() {
             onChange={(e) =>
               setFormData({ ...formData, description: e.target.value })
             }
-            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm"
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -141,7 +141,7 @@ export function EditProduct() {
               onChange={(e) =>
                 setFormData({ ...formData, price: e.target.value })
               }
-              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm"
             />
           </div>
           <div>
@@ -153,7 +153,7 @@ export function EditProduct() {
               onChange={(e) =>
                 setFormData({ ...formData, unit_of_measure: e.target.value })
               }
-              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm"
             >
               <option value="kg">kg</option>
               <option value="lb">lb</option>
@@ -174,7 +174,7 @@ export function EditProduct() {
               onChange={(e) =>
                 setFormData({ ...formData, stock_quantity: e.target.value })
               }
-              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm"
             />
           </div>
           <div>
@@ -187,7 +187,7 @@ export function EditProduct() {
               onChange={(e) =>
                 setFormData({ ...formData, category_id: e.target.value })
               }
-              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 sm:text-sm"
             >
               <option value="">Select a category...</option>
               {categories.map((c) => (
@@ -215,7 +215,7 @@ export function EditProduct() {
             <button
               type="submit"
               disabled={isSaving}
-              className="px-4 py-2 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-md disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md disabled:opacity-50"
             >
               {isSaving ? "Saving..." : "Save Changes"}
             </button>

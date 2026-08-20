@@ -157,7 +157,7 @@ export function ProductDetails() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[70vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
       </div>
     );
   }
@@ -168,7 +168,7 @@ export function ProductDetails() {
         <Package className="h-16 w-16 text-slate-300 mx-auto mb-4" />
         <h2 className="text-2xl font-bold text-slate-900 mb-2">Product not found</h2>
         <p className="text-slate-500 mb-6">The product you are looking for might have been removed or is temporarily unavailable.</p>
-        <Link to="/products" className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 transition-colors">
+        <Link to="/products" className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg text-sm font-medium text-white bg-green-600 hover:bg-green-700 transition-colors">
           <ArrowLeft className="h-4 w-4 mr-2" /> Back to Products
         </Link>
       </div>
@@ -189,18 +189,18 @@ export function ProductDetails() {
         <nav className="flex text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
-              <Link to="/" className="hover:text-emerald-600 transition-colors">Home</Link>
+              <Link to="/" className="hover:text-green-600 transition-colors">Home</Link>
             </li>
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <Link to="/products" className="hover:text-emerald-600 transition-colors">Products</Link>
+                <Link to="/products" className="hover:text-green-600 transition-colors">Products</Link>
               </div>
             </li>
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <Link to={`/products?category=${product.categories?.slug}`} className="hover:text-emerald-600 transition-colors">{product.categories?.name}</Link>
+                <Link to={`/products?category=${product.categories?.slug}`} className="hover:text-green-600 transition-colors">{product.categories?.name}</Link>
               </div>
             </li>
             <li aria-current="page">
@@ -237,7 +237,7 @@ export function ProductDetails() {
                         <button 
                           key={idx}
                           onClick={() => setActiveImage(img.url)}
-                          className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${activeImage === img.url ? 'border-emerald-600 opacity-100' : 'border-transparent opacity-70 hover:opacity-100'}`}
+                          className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${activeImage === img.url ? 'border-green-600 opacity-100' : 'border-transparent opacity-70 hover:opacity-100'}`}
                         >
                           <img src={img.url} className="w-full h-full object-cover" alt="" />
                         </button>
@@ -248,7 +248,7 @@ export function ProductDetails() {
 
                 {/* Details */}
                 <div className="flex flex-col">
-                  <p className="text-sm font-bold text-emerald-600 tracking-wider uppercase mb-2">{product.brand || product.categories?.name}</p>
+                  <p className="text-sm font-bold text-green-600 tracking-wider uppercase mb-2">{product.brand || product.categories?.name}</p>
                   <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3 leading-tight">{product.title}</h1>
                   
                   <div className="flex items-center gap-4 mb-4">
@@ -276,7 +276,7 @@ export function ProductDetails() {
                   
                   <div className="space-y-4 mb-8">
                     <div className="flex items-center text-sm">
-                      <div className={`w-3 h-3 rounded-full mr-2 ${product.stock_quantity > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}></div>
+                      <div className={`w-3 h-3 rounded-full mr-2 ${product.stock_quantity > 0 ? 'bg-green-500' : 'bg-red-500'}`}></div>
                       <span className="font-medium text-slate-700">{product.stock_quantity > 0 ? 'In Stock' : 'Out of Stock'}</span>
                       <span className="text-slate-500 ml-2">({product.stock_quantity} available)</span>
                     </div>
@@ -285,12 +285,12 @@ export function ProductDetails() {
                       <div className="flex items-center border border-slate-300 rounded-lg bg-white">
                         <button 
                           onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                          className="px-3 py-2 text-slate-600 hover:text-emerald-600 transition-colors"
+                          className="px-3 py-2 text-slate-600 hover:text-green-600 transition-colors"
                         >-</button>
                         <span className="px-4 py-2 font-semibold text-slate-900 border-x border-slate-300">{quantity}</span>
                         <button 
                           onClick={() => setQuantity(Math.min(product.stock_quantity, quantity + 1))}
-                          className="px-3 py-2 text-slate-600 hover:text-emerald-600 transition-colors"
+                          className="px-3 py-2 text-slate-600 hover:text-green-600 transition-colors"
                         >+</button>
                       </div>
                       <p className="text-sm text-slate-500">Quantity</p>
@@ -301,7 +301,7 @@ export function ProductDetails() {
                     <button 
                       onClick={handleBuyNow}
                       disabled={product.stock_quantity <= 0}
-                      className="flex-1 flex justify-center items-center px-6 py-3.5 border border-transparent rounded-xl shadow-sm text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 flex justify-center items-center px-6 py-3.5 border border-transparent rounded-xl shadow-sm text-base font-bold text-white bg-green-600 hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <ShoppingCart className="h-5 w-5 mr-2" /> Buy Now
                     </button>
@@ -368,7 +368,7 @@ export function ProductDetails() {
                           <span className="text-xs text-slate-500">{new Date(review.created_at).toLocaleDateString()}</span>
                         </div>
                         {false && (
-                          <p className="text-xs font-semibold text-emerald-600 mb-2 flex items-center">
+                          <p className="text-xs font-semibold text-green-600 mb-2 flex items-center">
                             <CheckCircle className="h-3 w-3 mr-1" /> Verified Purchase
                           </p>
                         )}
@@ -394,14 +394,14 @@ export function ProductDetails() {
               <h3 className="font-bold text-slate-900 mb-4">Delivery & Returns</h3>
               <div className="space-y-4">
                 <div className="flex gap-3">
-                  <Truck className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                  <Truck className="h-5 w-5 text-green-600 flex-shrink-0" />
                   <div>
                     <p className="text-sm font-semibold text-slate-900">Delivery Information</p>
                     <p className="text-xs text-slate-600 mt-1">{product.delivery_info || 'Standard delivery applies. Shipping costs calculated at checkout.'}</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <ShieldCheck className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                  <ShieldCheck className="h-5 w-5 text-green-600 flex-shrink-0" />
                   <div>
                     <p className="text-sm font-semibold text-slate-900">Return Policy</p>
                     <p className="text-xs text-slate-600 mt-1">{product.return_policy || '30-day return policy for unused items in original packaging.'}</p>
@@ -409,7 +409,7 @@ export function ProductDetails() {
                 </div>
                 {product.warranty && (
                    <div className="flex gap-3">
-                   <ShieldCheck className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                   <ShieldCheck className="h-5 w-5 text-green-600 flex-shrink-0" />
                    <div>
                      <p className="text-sm font-semibold text-slate-900">Warranty</p>
                      <p className="text-xs text-slate-600 mt-1">{product.warranty}</p>
@@ -423,11 +423,11 @@ export function ProductDetails() {
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
               <h3 className="font-bold text-slate-900 mb-4">Seller Information</h3>
               <div className="flex items-center gap-4 mb-4 pb-4 border-b border-slate-100">
-                <div className="h-14 w-14 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 overflow-hidden border border-emerald-200">
+                <div className="h-14 w-14 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 overflow-hidden border border-green-200">
                   {product.sellers?.users?.avatar_url ? (
                     <img src={product.sellers.users.avatar_url} alt="" className="h-full w-full object-cover" />
                   ) : (
-                    <span className="text-emerald-700 font-bold text-xl">{product.sellers?.business_name.charAt(0)}</span>
+                    <span className="text-green-700 font-bold text-xl">{product.sellers?.business_name.charAt(0)}</span>
                   )}
                 </div>
                 <div>
@@ -457,7 +457,7 @@ export function ProductDetails() {
                     if (user?.role !== 'buyer') return navigate('/buyer/login?redirect=/products/' + product?.id);
                     setShowInquiryModal(true);
                   }}
-                  className="w-full flex justify-center items-center px-4 py-2.5 border border-emerald-600 rounded-lg shadow-sm text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-colors"
+                  className="w-full flex justify-center items-center px-4 py-2.5 border border-green-600 rounded-lg shadow-sm text-sm font-semibold text-green-700 bg-green-50 hover:bg-green-100 transition-colors"
                 >
                   <MessageSquare className="h-4 w-4 mr-2" /> Send Inquiry
                 </button>
@@ -525,7 +525,7 @@ export function ProductDetails() {
                       <img src={recImage} alt={rec.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className="p-4">
-                      <p className="text-xs text-emerald-600 font-bold uppercase tracking-wider mb-1">{rec.categories?.name}</p>
+                      <p className="text-xs text-green-600 font-bold uppercase tracking-wider mb-1">{rec.categories?.name}</p>
                       <h3 className="text-md font-bold text-slate-900 mb-1 line-clamp-1">{rec.title}</h3>
                       <div className="flex items-center gap-2 mt-2">
                         <p className="text-lg font-extrabold text-slate-900">${(rec.price * (1 - (rec.discount || 0)/100)).toFixed(2)}</p>
@@ -565,13 +565,13 @@ export function ProductDetails() {
                   rows={4} 
                   value={inquiryMessage} 
                   onChange={e => setInquiryMessage(e.target.value)} 
-                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm resize-none shadow-sm" 
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm resize-none shadow-sm" 
                   placeholder="Hello, I would like to know more about this product..."
                 ></textarea>
               </div>
               <div className="flex justify-end gap-3">
                 <button type="button" onClick={() => setShowInquiryModal(false)} className="px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-colors">Cancel</button>
-                <button type="submit" disabled={isSendingInquiry || !inquiryMessage.trim()} className="px-5 py-2.5 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 transition-colors flex items-center">
+                <button type="submit" disabled={isSendingInquiry || !inquiryMessage.trim()} className="px-5 py-2.5 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-green-600 hover:bg-green-700 disabled:opacity-50 transition-colors flex items-center">
                   {isSendingInquiry ? (
                     <><div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div> Sending...</>
                   ) : 'Send Inquiry'}
@@ -586,8 +586,8 @@ export function ProductDetails() {
         <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden transform transition-all p-6 text-center">
              <h3 className="text-xl font-bold text-slate-900 mb-2">Seller Phone Number</h3>
-             <p className="text-3xl font-extrabold text-emerald-600 mb-6 py-4 bg-slate-50 rounded-xl tracking-wider">{product?.sellers?.phone_number}</p>
-             <button onClick={() => setShowPhoneModal(false)} className="w-full px-5 py-3 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors">Close</button>
+             <p className="text-3xl font-extrabold text-green-600 mb-6 py-4 bg-slate-50 rounded-xl tracking-wider">{product?.sellers?.phone_number}</p>
+             <button onClick={() => setShowPhoneModal(false)} className="w-full px-5 py-3 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-green-600 hover:bg-green-700 transition-colors">Close</button>
           </div>
         </div>
       )}

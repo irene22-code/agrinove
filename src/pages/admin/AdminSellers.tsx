@@ -25,8 +25,10 @@ export function AdminSellers() {
     }
   };
 
-  const handleDelete = async (id: string) => { console.log("Delete clicked in AdminSellers"); console.log("Seller id:", id);
-    if (deleteConfirmText !== 'DELETE') return;
+  const handleDelete = async (id: string) => {
+    console.log("DELETE BUTTON CLICKED", id);
+    console.log("CONFIRM DELETE", id); console.log("Delete clicked in AdminSellers"); console.log("Seller id:", id);
+    if (deleteConfirmText.trim() !== 'DELETE') return;
     try {
       console.log("Sending delete request to API for seller", id); const res = await api.delete<{success: boolean, error?: string}>(`/admin/users/${id}`);
       if (res.success) {
@@ -170,7 +172,7 @@ export function AdminSellers() {
               </button>
               <button 
                 onClick={() => handleDelete(sellerToDelete)} 
-                disabled={deleteConfirmText !== 'DELETE'}
+                disabled={deleteConfirmText.trim() !== 'DELETE'}
                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50"
               >
                 Delete Seller

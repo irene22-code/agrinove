@@ -35,11 +35,11 @@ export function BuyerLayout() {
                     to={item.href}
                     className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                       isActive
-                        ? 'bg-emerald-50 text-emerald-700'
+                        ? 'bg-green-50 text-green-700'
                         : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                     }`}
                   >
-                    <item.icon className={`mr-3 h-5 w-5 ${isActive ? 'text-emerald-500' : 'text-slate-400'}`} />
+                    <item.icon className={`mr-3 h-5 w-5 ${isActive ? 'text-green-500' : 'text-slate-400'}`} />
                     {item.name}
                   </Link>
                 );

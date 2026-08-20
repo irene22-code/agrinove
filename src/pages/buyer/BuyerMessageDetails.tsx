@@ -65,7 +65,7 @@ export function BuyerMessageDetails() {
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)] max-w-4xl">
       <div className="flex items-center mb-6">
-        <Link to="/buyer/messages" className="mr-4 text-slate-500 hover:text-emerald-600 bg-white p-2 rounded-full shadow-sm">
+        <Link to="/buyer/messages" className="mr-4 text-slate-500 hover:text-green-600 bg-white p-2 rounded-full shadow-sm">
           <ArrowLeft className="h-5 w-5" />
         </Link>
         <div>
@@ -80,9 +80,9 @@ export function BuyerMessageDetails() {
             const isMe = msg.sender_id === user?.id;
             return (
               <div key={msg.id} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[80%] md:max-w-[70%] rounded-2xl p-4 ${isMe ? 'bg-emerald-600 text-white rounded-br-none shadow-md' : 'bg-slate-100 text-slate-800 rounded-bl-none shadow-sm'}`}>
+                <div className={`max-w-[80%] md:max-w-[70%] rounded-2xl p-4 ${isMe ? 'bg-green-600 text-white rounded-br-none shadow-md' : 'bg-slate-100 text-slate-800 rounded-bl-none shadow-sm'}`}>
                   <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.content}</p>
-                  <p className={`text-xs mt-2 text-right ${isMe ? 'text-emerald-200' : 'text-slate-500'}`}>
+                  <p className={`text-xs mt-2 text-right ${isMe ? 'text-green-200' : 'text-slate-500'}`}>
                     {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
@@ -99,12 +99,12 @@ export function BuyerMessageDetails() {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 rounded-full border-slate-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 px-6 py-3 border"
+              className="flex-1 rounded-full border-slate-300 shadow-sm focus:border-green-500 focus:ring-green-500 px-6 py-3 border"
             />
             <button
               type="submit"
               disabled={!newMessage.trim()}
-              className="inline-flex items-center justify-center p-3 h-12 w-12 border border-transparent rounded-full shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 disabled:opacity-50 transition-colors"
+              className="inline-flex items-center justify-center p-3 h-12 w-12 border border-transparent rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 transition-colors"
             >
               <Send className="h-5 w-5" />
             </button>

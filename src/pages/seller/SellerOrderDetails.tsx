@@ -45,7 +45,7 @@ export function SellerOrderDetails() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-           <Link to="/seller/orders" className="text-slate-400 hover:text-emerald-600">
+           <Link to="/seller/orders" className="text-slate-400 hover:text-green-600">
              <ArrowLeft className="h-6 w-6" />
            </Link>
            <h1 className="text-2xl font-bold text-slate-900">Order #{order.id.slice(0, 8)}</h1>
@@ -56,7 +56,7 @@ export function SellerOrderDetails() {
              value={order.order_status} 
              onChange={(e) => handleStatusChange(e.target.value)}
              disabled={isUpdating || order.order_status === 'cancelled'}
-             className="text-sm border-slate-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 disabled:opacity-50"
+             className="text-sm border-slate-300 rounded-md focus:ring-green-500 focus:border-green-500 disabled:opacity-50"
            >
              <option value="pending">Pending</option>
              <option value="confirmed">Confirmed</option>

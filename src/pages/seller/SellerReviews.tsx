@@ -56,7 +56,7 @@ export function SellerReviews() {
                     <p className="text-sm text-slate-700 italic">"{review.comment}"</p>
                     <div className="mt-3">
                       <span className="text-xs text-slate-500">Product: </span>
-                      <Link to={`/products/${review.products?.id}`} className="text-xs font-medium text-emerald-600 hover:text-emerald-700">
+                      <Link to={`/products/${review.products?.id}`} className="text-xs font-medium text-green-600 hover:text-green-700">
                         {review.products?.title}
                       </Link>
                     </div>

@@ -1,5 +1,5 @@
 import { Link, useLocation, Outlet, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, FileText, Users, UserCheck, PackageCheck, Tags, ShoppingCart, MessageSquare, BarChart, Settings, ShieldAlert, LogOut, Sprout, Star, Bell } from 'lucide-react';
+import { CalendarDays, Leaf, LayoutDashboard, FileText, Users, UserCheck, PackageCheck, Tags, ShoppingCart, MessageSquare, BarChart, Settings, ShieldAlert, LogOut, Sprout, Star, Bell, TrendingUp } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 export function AdminLayout() {
@@ -15,6 +15,9 @@ export function AdminLayout() {
     { name: 'Buyers', href: '/admin/buyers', icon: Users },
 
     { name: 'Products', href: '/admin/products', icon: PackageCheck },
+    { name: 'Market Prices', href: '/admin/market-prices', icon: TrendingUp },
+    { name: 'Plant Health', href: '/admin/plant-health', icon: Leaf },
+    { name: 'Crop Calendar', href: '/admin/crop-calendar', icon: CalendarDays },
     { name: 'Categories', href: '/admin/categories', icon: Tags },
     { name: 'Orders', href: '/admin/orders', icon: ShoppingCart },
     { name: 'Messages', href: '/admin/messages', icon: MessageSquare },
@@ -37,7 +40,7 @@ export function AdminLayout() {
       <header className="bg-slate-900 border-b border-slate-800 shrink-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Sprout className="h-8 w-8 text-emerald-400" />
+            <Sprout className="h-8 w-8 text-green-400" />
             <span className="text-xl font-bold text-white tracking-tight">AgroMart Admin</span>
           </div>
           <div className="flex items-center space-x-4">
@@ -66,11 +69,11 @@ export function AdminLayout() {
                     to={item.href}
                     className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                       isActive
-                        ? 'bg-emerald-50 text-emerald-700'
+                        ? 'bg-green-50 text-green-700'
                         : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                     }`}
                   >
-                    <item.icon className={`mr-3 h-5 w-5 ${isActive ? 'text-emerald-500' : 'text-slate-400'}`} />
+                    <item.icon className={`mr-3 h-5 w-5 ${isActive ? 'text-green-500' : 'text-slate-400'}`} />
                     {item.name}
                   </Link>
                 );

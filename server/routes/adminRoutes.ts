@@ -1,3 +1,5 @@
+import { getAdminMarketPrices, createMarketPrice, updateMarketPrice, deleteMarketPrice, getMarketSettings, updateMarketSettings,
+  deleteMarketSetting, uploadMarketDocument } from '../controllers/marketPricesController';
 import { getAdminReports } from '../controllers/adminReportsController';
 import { Router } from 'express';
 import multer from 'multer';
@@ -42,13 +44,13 @@ router.patch('/sellers/:id/verify', verifySeller);
 // Products
 router.get('/products', getAdminProducts);
 router.patch('/products/:id/status', updateAdminProductStatus);
-router.delete('/products/:id', deleteAdminProduct);
+router.delete('/products/:id', (req, res, next) => { console.log('DELETE ROUTE HIT', '/products/:id', req.params.id); next(); }, deleteAdminProduct);
 
 // Categories
 router.get('/categories', getAdminCategories);
 router.post('/categories', createCategory);
 router.put('/categories/:id', updateCategory);
-router.delete('/categories/:id', deleteCategory);
+router.delete('/categories/:id', (req, res, next) => { console.log('DELETE ROUTE HIT', '/categories/:id', req.params.id); next(); }, deleteCategory);
 router.post('/categories/:id/image', upload.single('image'), uploadAdminCategoryImage);
 
 // Messages
@@ -72,6 +74,19 @@ router.get('/reviews', getAdminReviews);
 router.delete('/reviews/:id', deleteAdminReview,);
 // Reports
 router.get('/reports', getAdminReports);
+
+
+// Market Prices
+router.get('/market-prices', getAdminMarketPrices);
+router.post('/market-prices', createMarketPrice);
+router.put('/market-prices/:id', updateMarketPrice);
+router.delete('/market-prices/:id', deleteMarketPrice);
+
+// Market Settings
+router.get('/market-settings', getMarketSettings);
+router.post('/market-settings', updateMarketSettings);
+router.delete('/market-settings/:type/:id', deleteMarketSetting);
+router.post('/market-prices/document', upload.single('document'), uploadMarketDocument);
 
 export default router;
 

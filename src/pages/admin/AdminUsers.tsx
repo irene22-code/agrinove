@@ -56,14 +56,22 @@ export function AdminUsers() {
     }
   };
 
-  const handleDeleteUser = async (id: string) => { console.log("Delete clicked in AdminUsers"); console.log("User id:", id);
-    if (deleteConfirmText !== 'DELETE') return;
+  const handleDeleteUser = async (id: string) => { 
+    console.log("DELETE BUTTON CLICKED", id); 
+    if (deleteConfirmText.trim() !== 'DELETE') {
+      console.log("CONFIRM DELETE ABORTED: text mismatch", deleteConfirmText);
+      return;
+    }
+    console.log("CONFIRM DELETE", id);
     try {
-      console.log("Sending delete request to API for user", id); await api.delete(`/admin/users/${id}`); console.log("API request successful");
+      console.log("SENDING DELETE REQUEST TO API", `/admin/users/${id}`); 
+      await api.delete(`/admin/users/${id}`); 
+      console.log("API REQUEST SUCCESSFUL");
       fetchUsers();
       setDeletingUser(null);
       setDeleteConfirmText('');
-    } catch (error) {
+    } catch (error: any) {
+      console.error("DELETE ERROR IN FRONTEND:", error);
       alert(error?.message || 'Failed to delete user');
     }
   };
@@ -260,7 +268,7 @@ export function AdminUsers() {
               </button>
               <button 
                 onClick={() => handleDeleteUser(deletingUser.id)} 
-                disabled={deleteConfirmText !== 'DELETE'}
+                disabled={deleteConfirmText.trim() !== 'DELETE'}
                 className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50"
               >
                 Delete User

@@ -57,7 +57,7 @@ export function BuyerNotifications() {
       <div className="flex items-center justify-between">
          <h1 className="text-2xl font-bold text-slate-900">Notifications</h1>
          {notifications.length > 0 && (
-           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
+           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
              {notifications.filter(n => !n.is_read).length} unread
            </span>
          )}
@@ -73,7 +73,7 @@ export function BuyerNotifications() {
         <div className="bg-white shadow-sm rounded-xl border border-slate-200 overflow-hidden">
           <ul className="divide-y divide-slate-200">
             {notifications.map((notification) => (
-              <li key={notification.id} className={`p-5 hover:bg-slate-50 transition-colors ${!notification.is_read ? 'bg-emerald-50/30' : ''}`}>
+              <li key={notification.id} className={`p-5 hover:bg-slate-50 transition-colors ${!notification.is_read ? 'bg-green-50/30' : ''}`}>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <p className={`text-base ${!notification.is_read ? 'font-bold text-slate-900' : 'font-medium text-slate-800'}`}>
@@ -82,7 +82,7 @@ export function BuyerNotifications() {
                     <p className="text-sm text-slate-600 mt-1">{notification.content}</p>
                     <p className="text-xs text-slate-400 mt-2">{new Date(notification.created_at).toLocaleString()}</p>
                     {notification.link && (
-                      <Link to={notification.link} className="inline-block mt-3 text-sm text-emerald-600 hover:text-emerald-700 font-medium">
+                      <Link to={notification.link} className="inline-block mt-3 text-sm text-green-600 hover:text-green-700 font-medium">
                         View Details &rarr;
                       </Link>
                     )}
@@ -91,7 +91,7 @@ export function BuyerNotifications() {
                     {!notification.is_read && (
                       <button 
                         onClick={() => markAsRead(notification.id)}
-                        className="p-2 text-emerald-600 hover:text-emerald-700 hover:bg-emerald-100 rounded-full transition-colors"
+                        className="p-2 text-green-600 hover:text-green-700 hover:bg-green-100 rounded-full transition-colors"
                         title="Mark as read"
                       >
                         <CheckCircle className="h-5 w-5" />
