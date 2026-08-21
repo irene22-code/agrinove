@@ -71,7 +71,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} AgroNavo. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex gap-4 text-sm text-slate-500">
-            <span>Powered by secure farm-to-table logistics.</span>
+            <span>Powered by ndanga irene</span>
           </div>
         </div>
       </div>
